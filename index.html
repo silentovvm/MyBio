@@ -23,7 +23,8 @@
 
   <div class="music-player">
     <button class="music-btn" id="musicBtn">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M3 5v14h5V5H3zm8 0v14h5V5h-5z"/></svg>
     </button>
     <span class="music-label" id="musicLabel">background</span>
   </div>
@@ -37,10 +38,10 @@
     btn.addEventListener('click', () => {
       if (playing) {
         audio.pause();
-        btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M8 5v14l11-7z"/></svg>';
+        btn.classList.remove('playing');
       } else {
         audio.play();
-        btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M3 5v14h5V5H3zm8 0v14h5V5h-5z"/></svg>';
+        btn.classList.add('playing');
       }
       playing = !playing;
     });
