@@ -26,7 +26,7 @@
       <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
       <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M3 5v14h5V5H3zm8 0v14h5V5h-5z"/></svg>
     </button>
-    <span class="music-label" id="musicLabel">background</span>
+    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="1">
   </div>
 
   <audio id="bgMusic" loop autoplay src="Assets/musics/background.mp3"></audio>
@@ -34,6 +34,7 @@
   <script>
     const btn = document.getElementById('musicBtn');
     const audio = document.getElementById('bgMusic');
+    const vol = document.getElementById('volumeSlider');
     let playing = false;
     btn.addEventListener('click', () => {
       if (playing) {
@@ -44,6 +45,9 @@
         btn.classList.add('playing');
       }
       playing = !playing;
+    });
+    vol.addEventListener('input', () => {
+      audio.volume = vol.value;
     });
   </script>
 </body>
